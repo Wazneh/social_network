@@ -1,0 +1,30 @@
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+#day of week(0-7)(sunday=0 or 7)-month(1-12)-month(1-31)-hour(0-23)-minute(0-59)
+#The asterisk (*) : This operator specifies all possible values for a field. For example, an asterisk in the hour time field would be equivalent to every hour or an asterisk in the month field would be equivalent to every month.
+#The comma (,) : This operator specifies a list of values, for example: "1,5,10,15,20, 25".
+#The dash (-) : This operator specifies a range of values, for example: "5-15" days , which is equivalent to typing "5,6,7,8,9,....,13,14,15" using the comma operator.
+#The separator (/) : This operator specifies a step value, for example: "0-23/" can be used in the hours field to specify command execution every other hour. Steps are also permitted after an asterisk, so if you want to say every two hours, just use */2.
+
+#This file was done to do one thing only in this case which is to clean the unactivated accounts on this system 
+@daily php deleteUnactivated.php
